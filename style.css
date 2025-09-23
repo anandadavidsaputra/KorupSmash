@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Bangers', cursive;
+    cursor: none;
+    user-select: none;
+}
+
+body {
+    background-image: url(assets/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #9b1c1c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
+
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+}
+
+.logo-image {
+    height: 50px;
+}
+
+.logo-text {
+    font-size: 2.5em;
+    color: #fff;
+    -webkit-text-stroke: 1px #9b1c1c;
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    gap: 2rem;
+}
+
+.info-container-left, .info-container-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+}
+
+.score-container, .timer-container {
+    text-align: center;
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+}
+
+.score-container {
+    flex-direction: column;
+}
+
+.timer-container {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.score-container .score-value, .timer-container .timer-value {
+    font-size: 1.2em;
+    color: #fff;
+    -webkit-text-stroke: 1px #9b1c1c;
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.board {
+    width: 90%;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5%;
+}
+
+.hole {
+    background-color: #4c321d;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    box-shadow: 
+        inset 0 10px 0 7px rgb(53, 21, 6),
+        inset 0 20px 15px rgba(0, 0, 0, .3),
+        0 0 5px rgba(0, 0, 0, .5);
+    position: relative;
+    overflow: hidden;
+}
+
+.hole .tikus {
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 0;
+    animation: rise .3s ease-out;
+}
+
+@keyframes rise {
+    0% {
+        transform: translate(-50%, 100%);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+.cursor {
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image: url(assets/palu.png);
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%);
+    transition: transform .1s;
+    pointer-events: none;
+}
+
+.cursor.active {
+    transform: translate(-20%, -20%) rotate(-45deg);
+}
+
+.start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    text-align: center;
+}
+
+.start-screen h1 {
+    font-size: 6em;
+    margin-bottom: 0.2em;
+}
+
+.start-screen p {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.start-screen button, #play-again-btn {
+    font-family: 'Bangers', cursive;
+    font-size: 2em;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 3px solid white;
+    background-color: #9b1c1c;
+    color: white;
+    border-radius: 10px;
+}
+
+.start-screen button:hover, #play-again-btn:hover {
+    background-color: #7a1616;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2.5em;
+    border-radius: 15px;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    color: #000;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.modal-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+}
+
+.modal-content #final-score-text {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.modal-content .satire-message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+/* Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .logo-container {
+        top: 10px;
+        left: 10px;
+        transform: none;
+    }
+
+    .logo-image {
+        height: 35px;
+    }
+
+    .logo-text {
+        font-size: 1.5em;
+    }
+
+    .main-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .info-container-left, .info-container-right {
+        width: 100%;
+        padding: 0;
+        margin-top: 0; 
+        margin-bottom: 0;
+    }
+
+    .info-container-left {
+        order: 1;
+    }
+
+    .board {
+        order: 2;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .info-container-right {
+        order: 3;
+    }
+
+    .score-container, .timer-container {
+        font-size: 2.2em;
+    }
+    
+    .score-container .score-value, .timer-container .timer-value {
+        font-size: 1.2em;
+    }
+    
+    .timer-container .timer-value {
+        min-width: 2ch;
+        text-align: left;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    .start-screen h1 {
+        font-size: 3em;
+    }
+    .start-screen p {
+        font-size: 1.5em;
+    }
+    .start-screen button {
+        font-size: 1.5em;
+    }
+    .modal-content h2 {
+        font-size: 2em;
+    }
+    .modal-content #final-score-text {
+        font-size: 1.5em;
+    }
+    .modal-content .satire-message {
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>KorupSmash</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo KorupSmash" class="logo-image">
+        <h1 class="logo-text">KorupSmash</h1>
+    </div>
+
+    <div class="main-container">
+        <div class="info-container-left">
+            <h1 class="score-container">SCORE: <span class="score-value">0</span></h1>
+        </div>
+        
+        <div class="board">
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+        </div>
+
+        <div class="info-container-right">
+            <h1 class="timer-container">WAKTU: <span class="timer-value">30</span></h1>
+        </div>
+    </div>
+    
+    <div class="cursor"></div>
+
+    <div class="start-screen">
+        <h1>KorupSmash</h1>
+        <p>Hancurkan para tikus!</p>
+        <button id="startButton">Klik untuk Mulai</button>
+    </div>
+
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="final-result-title"></h2>
+            <p id="final-score-text"></p>
+            <p class="satire-message">
+                Selamat! Operasi penumpasan tikus selesai. Tapi jangan cepat bangga. Di luar sana, masih banyak sarang yang tertawa sambil menikmati uang rakyat. Perjuangan ini belum seujung kuku. Lanjutkan, atau kita semua kena gebuk!
+            </p>
+            <button id="play-again-btn">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
