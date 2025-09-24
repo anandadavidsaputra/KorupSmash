@@ -1,7 +1,7 @@
 const cursor = document.querySelector(".cursor");
 const holes = [...document.querySelectorAll(".hole")];
 const scoreE1 = document.querySelector(".score-container .score-value");
-const timerE1 = document = document.querySelector(".timer-container .timer-value");
+const timerE1 = document.querySelector(".timer-container .timer-value");
 const sound = new Audio("assets/pukul.mp3");
 const bgm = new Audio("assets/bgSound.mp3");
 
@@ -22,7 +22,7 @@ let gameInterval;
 let isGameRunning = false;
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-const gameSpeed = isMobile ? 400 : 1000;
+const gameSpeed = isMobile ? 750 : 1000;
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
