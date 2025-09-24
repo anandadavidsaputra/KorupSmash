@@ -22,7 +22,7 @@ let gameInterval;
 let isGameRunning = false;
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-const gameSpeed = isMobile ? 1200 : 1000;
+const gameSpeed = isMobile ? 750 : 1000;
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
