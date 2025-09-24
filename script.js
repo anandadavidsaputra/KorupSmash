@@ -22,7 +22,7 @@ let gameInterval;
 let isGameRunning = false;
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-const gameSpeed = isMobile ? 750 : 1000;
+const gameSpeed = isMobile ? 1200 : 1000;
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -66,21 +66,21 @@ function run() {
 }
 
 function getScoreCategory(finalScore) {
-    if (finalScore >= 250) {
+    if (finalScore >= 150) {
         return "Kelas Kakap! 🦈";
-    } else if (finalScore >= 150) {
+    } else if (finalScore >= 100) {
         return "Kelas Menengah! 💼";
-    } else if (finalScore >= 75) {
+    } else if (finalScore >= 50) {
         return "Kelas Teri! 🐟";
-    } else if (finalScore >= 25) {
+    } else if (finalScore >= 10) {
         return "Masih Kurang Jago! 🧐";
     } else {
-        return "Belum Mampu Gebuk! 🙈";
+        return "Butuh Latihan Lagi! 🐌";
     }
 }
 
 function getFinalResultTitle(finalScore) {
-    if (finalScore >= 100) {
+    if (finalScore >= 40) {
         return "OPERASI TANGKAP TANGAN (OTT) BERHASIL!";
     } else {
         return "TIM OPERASI GAGAL TOTAL!";
